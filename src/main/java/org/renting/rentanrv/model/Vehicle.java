@@ -13,19 +13,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Vehicle {
-	// -- constructors --
-	
-		public Vehicle() {}
-
-		public Vehicle(String name, int numberOfGuests, String localisation, int numberOfBeds,
-				BigDecimal pricePerNight, int minStay) {
-			this.name = name;
-			this.numberOfGuests = numberOfGuests;
-			this.localisation = localisation;
-			this.numberOfBeds = numberOfBeds;
-			this.pricePerNight = pricePerNight;
-			this.minStay = minStay;
-		}
 	
 	// -- fields --
 	
@@ -60,7 +47,19 @@ public class Vehicle {
 	@Min(1)
 	private int minStay;
 	
+	// -- constructors --
 	
+	public Vehicle() {}
+
+	public Vehicle(String name, int numberOfGuests, String localisation, int numberOfBeds,
+			BigDecimal pricePerNight, int minStay) {
+		this.name = name;
+		this.numberOfGuests = numberOfGuests;
+		this.localisation = localisation;
+		this.numberOfBeds = numberOfBeds;
+		this.pricePerNight = pricePerNight;
+		this.minStay = minStay;
+	}
 	
 	// -- getters, setters, toString --
 
