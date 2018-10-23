@@ -1,0 +1,23 @@
+
+spring:
+  datasource:
+#    url: jdbc:h2:tcp://localhost/~/rvDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+    test-while-idle: true
+    time-between-eviction-runs-millis: 600000
+    validation-query: SELECT 1
+    test-on-borrow: true
+    max-active: 10
+    initial-size: 5
+    max-idle: 5
+    min-idle: 1
+  jpa:
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: update
