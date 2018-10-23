@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -47,18 +48,22 @@ public class Vehicle {
 	@Min(1)
 	private int minStay;
 	
+	@ManyToOne
+	private User user;
+	
 	// -- constructors --
 	
 	public Vehicle() {}
 
 	public Vehicle(String name, int numberOfGuests, String localisation, int numberOfBeds,
-			BigDecimal pricePerNight, int minStay) {
+			BigDecimal pricePerNight, int minStay, User user) {
 		this.name = name;
 		this.numberOfGuests = numberOfGuests;
 		this.localisation = localisation;
 		this.numberOfBeds = numberOfBeds;
 		this.pricePerNight = pricePerNight;
 		this.minStay = minStay;
+		this.user = user;
 	}
 	
 	// -- getters, setters, toString --
@@ -117,6 +122,14 @@ public class Vehicle {
 
 	public void setMinStay(int minStay) {
 		this.minStay = minStay;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
