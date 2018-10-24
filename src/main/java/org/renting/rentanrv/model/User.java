@@ -26,7 +26,6 @@ import javax.validation.constraints.Size;
 @NamedEntityGraph(name="vehicles", attributeNodes = {@NamedAttributeNode("vehicles")}) // to eager fetch the vehicles of the user
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "firstName", "lastName" }) })
 public class User {
-	// todo: password
 	
 	// -- fields --
 	@Id
