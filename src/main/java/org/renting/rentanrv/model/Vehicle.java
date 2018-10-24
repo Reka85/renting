@@ -2,17 +2,21 @@ package org.renting.rentanrv.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(indexes = {@Index(name="VEHICLE_DETAILS_IDX", columnList = "localisation, pricePerNight")})
 public class Vehicle {
 	
 	// -- fields --
@@ -23,6 +27,7 @@ public class Vehicle {
 	
 	@NotNull
 	@Size(min=3, max=40)
+	@Column(unique = true)
 	private String name;
 	
 	@NotNull
@@ -49,6 +54,7 @@ public class Vehicle {
 	private int minStay;
 	
 	@ManyToOne
+	@NotNull //rv must belong to a user
 	private User user;
 	
 	// -- constructors --

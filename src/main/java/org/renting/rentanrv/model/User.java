@@ -8,7 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -18,6 +23,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
+@NamedEntityGraph(name="vehicles", attributeNodes = {@NamedAttributeNode("vehicles")}) // to eager fetch the vehicles of the user
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "firstName", "lastName" }) })
 public class User {
 	// todo: password
 	
@@ -42,10 +49,11 @@ public class User {
     @Min(18) // only users above 18 can lease or rent rvs
     private Integer age; 
 	
-	@Pattern(regexp="(^\\d{3}-\\d{7}$)")// US phone number format
+	@Pattern(regexp="(^\\d{3}-\\d{7}$)") // US phone number format
 	private String phoneNumber;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL) //lazy fetch by default
+	@JoinColumn(name = "USER_ID")
 	@Valid
 	private List<Vehicle> vehicles = new ArrayList<>();
 	
