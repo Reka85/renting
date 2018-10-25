@@ -1,5 +1,6 @@
 package org.renting.rentanrv.controller;
 
+import org.renting.rentanrv.model.User;
 import org.renting.rentanrv.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,10 @@ public class UserDetailsController {
 	// localhost:80/users/:id
 	@RequestMapping(path = "{id}", method = RequestMethod.GET)
 	public String displayUser(@PathVariable("id") Long userId, Model model) {
-		model.addAttribute("user", userService.getUserDetails(userId));
+		User user = userService.getUserDetails(userId);
+		String pageTitle = String.format("%s %s's profile", user.getFirstName(), user.getLastName());
+		model.addAttribute("user", user);
+		model.addAttribute("userPageTitle", pageTitle);
 		return "user-details";
 	}
-	
-	
 }
