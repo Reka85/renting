@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	  <title th:text="${vehicle.name}">User</title>
+	</head>
+
+	<body>
+	
+	 <h1>Vehicle details</h1>
+	 <p>Name: <span th:text="${vehicle.name}">name</span></p>
+	 <p>Number of guests: <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
+	 <p>Localization: <span th:text="${vehicle.localisation}">Localization</span></p>
+	 <p>Number of beds: <span th:text="${vehicle.numberOfBeds}">Number of beds</span></p>
+	 <p>Price per night: <span th:text="${vehicle.pricePerNight}">Price per night</span></p>
+	 <p>Minimum days to stay: <span th:text="${vehicle.minStay}">Minimum days to stay</span></p>
+	 <p>Owner: 
+	 	<a th:text="${vehicle.user.firstName}" 
+	 	   th:href="@{/users/__${vehicle.user.id}__}">Owner
+		</a>
+	 </p>
+	 <a th:href="@{'/'}">Back to home page</a>
+	</body>
+</html>
