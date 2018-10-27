@@ -1,24 +1,37 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head>
-	  <title th:text="${vehicle.name}">User</title>
-	</head>
-
-	<body>
+	    <meta charset="utf-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
 	
-	 <h1>Vehicle details</h1>
-	 <p>Name: <span th:text="${vehicle.name}">name</span></p>
-	 <p>Number of guests: <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
-	 <p>Localization: <span th:text="${vehicle.localisation}">Localization</span></p>
-	 <p>Number of beds: <span th:text="${vehicle.numberOfBeds}">Number of beds</span></p>
-	 <p>Price per night: <span th:text="${vehicle.pricePerNight}">Price per night</span></p>
-	 <p>Minimum days to stay: <span th:text="${vehicle.minStay}">Minimum days to stay</span></p>
-	 <p>Owner: 
-	 	<a th:text="${vehicle.user.firstName}" 
-	 	   th:href="@{/users/__${vehicle.user.id}__}">Owner
-		</a>
-	 </p>
-	 <a th:href="@{'/'}">Back to home page</a>
+	    <title th:text="${vehicle.name}">User</title>
+	     
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet" />
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" /> 
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		
+	    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			 <h1>Vehicle details</h1>
+			 <p>Name: <span th:text="${vehicle.name}">name</span></p>
+			 <p>Number of guests: <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
+			 <p>Localization: <span th:text="${vehicle.localisation}">Localization</span></p>
+			 <p>Number of beds: <span th:text="${vehicle.numberOfBeds}">Number of beds</span></p>
+			 <p>Price per night: <span th:text="${vehicle.pricePerNight}">Price per night</span></p>
+			 <p>Minimum days to stay: <span th:text="${vehicle.minStay}">Minimum days to stay</span></p>
+			 <p>Owner: 
+			 	<a th:text="${vehicle.user.firstName}" 
+			 	   th:href="@{/users/__${vehicle.user.id}__}">Owner
+				</a>
+			 </p>
+			 <a th:href="@{'/'}">Back to home page</a>
+		 </div>
 	</body>
 </html>
