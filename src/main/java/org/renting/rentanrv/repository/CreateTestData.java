@@ -29,10 +29,13 @@ public class CreateTestData {
 		List<Vehicle> vehicles = user.getVehicles();
 		
 		BigDecimal price1 = new BigDecimal("30.5");
-		vehicles.add(new Vehicle("Joe's vehicle", 5, "San José", 3, price1 ,2, user));
+		vehicles.add(new Vehicle("Joe's vehicle", 5, "San José", 3, price1, 2, user));
 		
 		BigDecimal price2 = new BigDecimal("25.5");
 		vehicles.add(new Vehicle("Joe's other vehicle", 10, "Buenos Aires", 7, price2, 1, user));
+		
+		BigDecimal price3 = new BigDecimal("27");
+		vehicles.add(new Vehicle("Joe's vehicle in Spain", 4, "Valencia", 4, price3, 2, user));
 		
 		return userRepository.save(user);
 	}

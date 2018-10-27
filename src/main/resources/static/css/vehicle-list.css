@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.vehicle{
+	border: 1px solid black;
+	border-radius: 4px;
+	margin-bottom: 5vh;
+	padding: 1.5em 1em;
+}

@@ -7,6 +7,8 @@ import org.renting.rentanrv.model.Vehicle;
 import org.renting.rentanrv.repository.VehicleRepository;
 import org.renting.rentanrv.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,4 +28,11 @@ public class VehicleServiceImpl implements VehicleService {
 		return vehicle;
 	}
 
+	@Override
+	public Page<Vehicle> getAllVehicles(Pageable page) {
+		Page<Vehicle> vehicles = vehicleRepository.findAllByOrderByLocalisation(page);
+		return vehicles;
+	}
+	
+	
 }
