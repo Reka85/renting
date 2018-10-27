@@ -54,8 +54,20 @@ public class UserValidationTests {
 	}
 	
 	@Test(expected = ConstraintViolationException.class)
+	public void test_userCreationWithTooLongFirstName_fails() {
+		String firstName = new String(new char[31]).replace("\0", "m");
+		service.createNewUser(new User(firstName, "smith", "mary@email.com", 25, "456-4578965"));
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
 	public void test_userCreationWithTooShortLastName_fails() {
 		service.createNewUser(new User("mary", "s", "mary@email.com", 25, "456-4578965"));
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void test_userCreationWithTooLongLastName_fails() {
+		String lastName = new String(new char[31]).replace("\0", "m");
+		service.createNewUser(new User("mary", lastName, "mary@email.com", 25, "456-4578965"));
 	}
 	
 	@Test(expected = ConstraintViolationException.class)
@@ -70,6 +82,11 @@ public class UserValidationTests {
 	
 	@Test(expected = ConstraintViolationException.class)
 	public void test_userCreationWithInvalidPhoneNumberFormat_fails() {
-		service.createNewUser(new User("mary", "smith", "maryemail.com", 25, "456-465"));
+		service.createNewUser(new User("mary", "smith", "mary@email.com", 25, "4564658-945"));
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void test_userCreationWithNotFullUsNumber_fails() {
+		service.createNewUser(new User("mary", "smith", "mary@email.com", 25, "456-465"));
 	}
 }
