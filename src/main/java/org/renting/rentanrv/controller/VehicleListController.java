@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class VehicleListController {
@@ -14,11 +15,11 @@ public class VehicleListController {
 	private VehicleService vehicleService;
 	
 	@GetMapping({"/", "/vehicles"})
-	public String displayVehicleList(Model model, Pageable page) {
+	public String displayVehicleList(Model model, @RequestParam(required=false)String searchCriteria, Pageable page) {
 		if (page.getPageSize() < 1 || page.getPageSize() > 10) {
             page = PageRequest.of(0, 5);
         }
-		model.addAttribute("allVehicles", vehicleService.getAllVehicles(page));
+		model.addAttribute("allVehicles", vehicleService.searchByNameOrLocalisation(searchCriteria, page));
 		return "vehicle-list";
 	}
 }

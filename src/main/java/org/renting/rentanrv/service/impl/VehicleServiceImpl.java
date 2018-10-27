@@ -1,5 +1,7 @@
 package org.renting.rentanrv.service.impl;
 
+import java.text.MessageFormat;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -27,12 +29,24 @@ public class VehicleServiceImpl implements VehicleService {
 		Vehicle vehicle = vehicleRepository.findById(vehicleId).get();
 		return vehicle;
 	}
-
-	@Override
-	public Page<Vehicle> getAllVehicles(Pageable page) {
-		Page<Vehicle> vehicles = vehicleRepository.findAllByOrderByLocalisation(page);
+	
+	public Page<Vehicle> searchByNameOrLocalisation(String searchCriteria, Pageable page){
+		Page<Vehicle> vehicles = null;
+		
+		if (searchCriteria == null || searchCriteria.length() == 0) {
+			vehicles = vehicleRepository.findAllByOrderByLocalisation(page);
+		} else {
+			searchCriteria = MessageFormat.format("%{0}%", searchCriteria.trim());
+			vehicles = vehicleRepository.findByNameIgnoreCaseLikeOrLocalisationIgnoreCaseLikeOrderByName(searchCriteria, searchCriteria, page);
+		}
 		return vehicles;
 	}
+
+//	@Override
+//	public Page<Vehicle> getAllVehicles(Pageable page) {
+//		Page<Vehicle> vehicles = vehicleRepository.findAllByOrderByLocalisation(page);
+//		return vehicles;
+//	}
 	
 	
 }

@@ -20,7 +20,16 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Vehicle list</h1>
+			<h1>Vehicles to Rent</h1>
+			
+			<div id="searchVehicle">
+		      <form action="#" th:action="@{/}" method="get">
+		        <label for="searchField">Search for Vehicles</label> 
+		        <input id="searchField" name="searchCriteria" type="text" placeholder="Type name or localization" autocomplete="off" />
+		        <button class="submitButton" title="Search" type="submit">Search</button>
+		      </form>
+		    </div>
+			
 			<div class="vehicleList" th:if="${not #lists.isEmpty(allVehicles)}">
 				<div th:each="vehicle : ${allVehicles.content}" th:id="${'vehicle-' + vehicle.id}" th:class="vehicle">
 					<a th:href="@{/vehicles/__${vehicle.id}__}">

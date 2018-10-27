@@ -9,9 +9,23 @@ a:hover {
 	text-decoration: none;
 }
 
+a:active {
+	text-decoration: none;
+}
+
+h1{
+	text-align: center;
+}
+
 .vehicle{
 	border: 1px solid black;
 	border-radius: 4px;
 	margin-bottom: 5vh;
 	padding: 1.5em 1em;
+}
+
+#searchVehicle{
+	display: flex;
+	justify-content: space-around;
+	margin: 3em auto;
 }
