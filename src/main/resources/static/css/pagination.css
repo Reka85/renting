@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.pagination {
+	display: flex;
+	justify-content: space-around;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.pagination-stripe {
+    list-style-type: none;
+    min-width: 14vw;
+    display: flex;
+	justify-content: space-between;
+}
+
+.pagination-stripe li {
+    display: inline;
+}
+
+.pagination .disabled a {
+    cursor: default;
+}
+
+.pagination .active a {
+    cursor: default;
+    font-weight: bold;
+}
+
+.pagination a {
+    color: black;
+}
+
+.pagination .disabled a {
+    color: gray;
+}
+
+.pagination a:link {
+    text-decoration: none;
+}
+
+.pagination a:visited {
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+}
+
+.pagination .active a:hover, 
+.pagination .disabled a:hover {
+    text-decoration: none;
+}
+
+.pagination a:active {
+    text-decoration: underline;
+}

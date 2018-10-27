@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-h1, h2 {
-	font-family: 'Open Sans', sans-serif;
+body{
+	font-family: 'Raleway', sans-serif;
 }
 
-p {
-	font-family: 'Raleway', sans-serif;
+h1, h2 {
+	font-family: 'Open Sans', sans-serif;
 }
 
 a {

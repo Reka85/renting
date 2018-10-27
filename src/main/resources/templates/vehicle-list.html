@@ -33,6 +33,9 @@
 				</div>
 			</div>
 			<div class="no-result" th:if="${#lists.isEmpty(allVehicles.content)}">There are not any vehicles yet</div>
+			
+			<div th:replace="fragments/pagination :: pagingStripe(allVehicles)">
+			</div>
 		</div>
 	</body>
 </html>

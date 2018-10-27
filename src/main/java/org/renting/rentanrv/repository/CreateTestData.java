@@ -20,11 +20,11 @@ public class CreateTestData {
 	
 	@PostConstruct
 	public void createData() {
-		createTestUser();
+		createTestUsers();
 	}
 	
 	@Transactional
-	private User createTestUser() {
+	private void createTestUsers() {
 		User user = new User("Joe", "Smith", "joe@email.com", 25, "123-1234567");
 		List<Vehicle> vehicles = user.getVehicles();
 		
@@ -37,7 +37,19 @@ public class CreateTestData {
 		BigDecimal price3 = new BigDecimal("27");
 		vehicles.add(new Vehicle("Joe's vehicle in Spain", 4, "Valencia", 4, price3, 2, user));
 		
-		return userRepository.save(user);
+		userRepository.save(user);
+		
+		//-- 2nd user --
+		User user2 = new User("Rose", "Wright", "rose@email.com", 34, "456-4563214");
+		List<Vehicle> vehicles2 = user2.getVehicles();
+		
+		vehicles2.add(new Vehicle("Mary's vehicle", 5, "Brighton", 3, price1, 2, user2));
+		
+		vehicles2.add(new Vehicle("Mary's other vehicle", 10, "Liverpool", 7, price2, 1, user2));
+		
+		vehicles2.add(new Vehicle("Mary's vehicle in Yorkshire", 4, "Yorkshire", 4, price3, 2, user2));
+		
+		userRepository.save(user2);
 	}
 	
 }
