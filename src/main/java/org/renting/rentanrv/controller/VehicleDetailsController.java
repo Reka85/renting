@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,5 +51,11 @@ public class VehicleDetailsController {
 			view = "redirect:/vehicles"; //rather to users own page
 		}
 		return view;
+	}
+	
+	@DeleteMapping(path = "{id}")
+	public String deleteVehicle(@PathVariable("id") Long vehicleId) {
+		vehicleService.deleteVehicleById(vehicleId);
+		return "redirect:/vehicles";
 	}
 }

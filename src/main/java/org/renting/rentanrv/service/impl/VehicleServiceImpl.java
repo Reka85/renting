@@ -49,14 +49,14 @@ public class VehicleServiceImpl implements VehicleService {
 		List<Vehicle> vehicles = vehicleRepository.findAllByUserIdOrderByNameDesc(userId);
 		return vehicles;
 	}
-	
-	
 
-//	@Override
-//	public Page<Vehicle> getAllVehicles(Pageable page) {
-//		Page<Vehicle> vehicles = vehicleRepository.findAllByOrderByLocalisation(page);
-//		return vehicles;
-//	}
+	@Override
+	public void deleteVehicleById(Long vehicleId) {
+		vehicleRepository.deleteById(vehicleId);
+		
+	}
+	
+	
 	
 	
 }

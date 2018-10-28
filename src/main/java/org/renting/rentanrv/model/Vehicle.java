@@ -54,7 +54,7 @@ public class Vehicle {
 	private int minStay;
 	
 	@ManyToOne
-	//@NotNull //rv must belong to a user
+	@NotNull //rv must belong to a user
 	private User user;
 	
 	// -- constructors --

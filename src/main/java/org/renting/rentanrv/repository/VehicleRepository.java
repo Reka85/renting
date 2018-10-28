@@ -16,4 +16,5 @@ public interface VehicleRepository extends CrudRepository<Vehicle, Long> {
 			String name, String localisation, Pageable page);
 
 	List<Vehicle> findAllByUserIdOrderByNameDesc(Long userId);
+	
 }
