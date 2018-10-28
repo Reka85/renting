@@ -1,6 +1,7 @@
 package org.renting.rentanrv.service.impl;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -30,6 +31,7 @@ public class VehicleServiceImpl implements VehicleService {
 		return vehicle;
 	}
 	
+	@Override
 	public Page<Vehicle> searchByNameOrLocalisation(String searchCriteria, Pageable page){
 		Page<Vehicle> vehicles = null;
 		
@@ -41,6 +43,14 @@ public class VehicleServiceImpl implements VehicleService {
 		}
 		return vehicles;
 	}
+
+	@Override
+	public List<Vehicle> getVehiclesByUserId(Long userId) {
+		List<Vehicle> vehicles = vehicleRepository.findAllByUserIdOrderByNameDesc(userId);
+		return vehicles;
+	}
+	
+	
 
 //	@Override
 //	public Page<Vehicle> getAllVehicles(Pageable page) {

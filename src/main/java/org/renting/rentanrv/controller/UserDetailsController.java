@@ -1,7 +1,11 @@
 package org.renting.rentanrv.controller;
 
+import java.util.List;
+
 import org.renting.rentanrv.model.User;
+import org.renting.rentanrv.model.Vehicle;
 import org.renting.rentanrv.service.UserService;
+import org.renting.rentanrv.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +20,20 @@ public class UserDetailsController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private VehicleService vehicleService;
+	
 	// localhost:80/users/:id
 	@RequestMapping(path = "{id}", method = RequestMethod.GET)
 	public String displayUser(@PathVariable("id") Long userId, Model model) {
 		User user = userService.getUserDetails(userId);
+		List<Vehicle> userVehicles = vehicleService.getVehiclesByUserId(userId);
+		
+		
 		String pageTitle = String.format("%s %s's profile", user.getFirstName(), user.getLastName());
 		model.addAttribute("user", user);
 		model.addAttribute("userPageTitle", pageTitle);
+		model.addAttribute("userVehicles", userVehicles);
 		return "user-details";
 	}
 }

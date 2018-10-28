@@ -4,7 +4,7 @@ body{
 	font-family: 'Raleway', sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -16,3 +16,6 @@ a:hover {
 	color: inherit;
 }
 
+a:active {
+	color: inherit;
+}

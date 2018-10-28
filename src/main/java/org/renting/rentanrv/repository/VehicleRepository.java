@@ -1,5 +1,7 @@
 package org.renting.rentanrv.repository;
 
+import java.util.List;
+
 import org.renting.rentanrv.model.Vehicle;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,4 +14,6 @@ public interface VehicleRepository extends CrudRepository<Vehicle, Long> {
 	// get vehicles that match location / name search
 	Page<Vehicle> findByNameIgnoreCaseLikeOrLocalisationIgnoreCaseLikeOrderByName(
 			String name, String localisation, Pageable page);
+
+	List<Vehicle> findAllByUserIdOrderByNameDesc(Long userId);
 }

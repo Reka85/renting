@@ -11,6 +11,7 @@
 	    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet" />
 	    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" /> 
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="stylesheet" type="text/css" href="/css/user-details.css">
 		
 	    <!--[if lt IE 9]>
 	    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -19,11 +20,31 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>User details</h1>
-			<p>First name: <span th:text="${user.firstName}">firstName</span></p>
-			<p>Last name: <span th:text="${user.lastName}">lastName</span></p>
-			<p>Email: <span th:text="${user.emailAddress}">emailAddress</span></p>
-			<p>Phone: <span th:text="${user.phoneNumber}">phoneNumber</span></p>
+			<div id="user-profile">
+				<h1>User details</h1>
+				<p>First name: <span th:text="${user.firstName}">firstName</span></p>
+				<p>Last name: <span th:text="${user.lastName}">lastName</span></p>
+				<p>Email: <span th:text="${user.emailAddress}">emailAddress</span></p>
+				<p>Phone: <span th:text="${user.phoneNumber}">phoneNumber</span></p>
+			</div>
+			
+			<div id="user-rvs" th:if="${not #lists.isEmpty(userVehicles)}">
+				<h3>My Vehicles</h3>
+				<div id="my-vehicles" class="row">
+					<div th:each="vehicle : ${userVehicles}" th:id="${'vehicle-' + vehicle.id}" class="vehicle col-xs-12 col-sm-6 col-md-4 col-lg-3">
+						
+						<a th:href="@{/vehicles/__${vehicle.id}__}">
+							<div class="vehicle-details">
+								<p th:text="${vehicle.name}">Vehicle name</p>
+								<p th:text="${vehicle.localisation}">Vehicle localization</p>
+								<p><span th:text="${vehicle.pricePerNight}">Price per night</span> $ / night </p>
+							</div>
+						</a>
+						
+					</div>
+				</div>
+			</div>
+			<div class="no-result" th:if="${#lists.isEmpty(userVehicles)}">You have not yet any vehicles yet</div>
 		</div>    
 	</body>
 </html>

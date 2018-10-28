@@ -1,0 +1,23 @@
+@charset "UTF-8";
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.vehicle{
+	padding: 20px;
+}
+.vehicle-details{
+	border: 1px solid black;
+	border-radius: 4px;
+	margin-bottom: 5vh;
+	padding: 1em 1em;
+	text-align: center;
+}
