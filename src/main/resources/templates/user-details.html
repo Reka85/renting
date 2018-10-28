@@ -26,13 +26,17 @@
 				<p>Last name: <span th:text="${user.lastName}">lastName</span></p>
 				<p>Email: <span th:text="${user.emailAddress}">emailAddress</span></p>
 				<p>Phone: <span th:text="${user.phoneNumber}">phoneNumber</span></p>
+				<br/>
+				<a th:href="@{'/'}">Back to home page</a>
 			</div>
 			
+			<h3>My Vehicles</h3>
+			<form action="#" th:action="@{/vehicles/new}" method="get">
+      			<button type="submit">Create new</button>
+    		</form>
 			<div id="user-rvs" th:if="${not #lists.isEmpty(userVehicles)}">
-				<h3>My Vehicles</h3>
 				<div id="my-vehicles" class="row">
 					<div th:each="vehicle : ${userVehicles}" th:id="${'vehicle-' + vehicle.id}" class="vehicle col-xs-12 col-sm-6 col-md-4 col-lg-3">
-						
 						<a th:href="@{/vehicles/__${vehicle.id}__}">
 							<div class="vehicle-details">
 								<p th:text="${vehicle.name}">Vehicle name</p>
@@ -40,11 +44,12 @@
 								<p><span th:text="${vehicle.pricePerNight}">Price per night</span> $ / night </p>
 							</div>
 						</a>
-						
 					</div>
 				</div>
 			</div>
-			<div class="no-result" th:if="${#lists.isEmpty(userVehicles)}">You have not yet any vehicles yet</div>
+			<div class="no-result" th:if="${#lists.isEmpty(userVehicles)}">
+				You have not any vehicles yet
+			</div>
 		</div>    
 	</body>
 </html>

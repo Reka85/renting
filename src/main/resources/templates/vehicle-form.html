@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="utf-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	    <title>Vehicle form</title>
+	    	    
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet" />
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" /> 
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="stylesheet" type="text/css" href="/css/form.css">
+		
+	    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+		<div class="container text-center">
+			<h1>Create a new vehicle</h1>
+			<form method="post" th:action="@{/vehicles}"  action="/vehicles" th:object="${vehicleForm}">
+				<div class="form-field">				
+					<label>Vehicle name</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Form error</div>
+					<input type="text" th:field="*{name}" />
+				</div>
+				<div class="form-field">
+					<label>Number of guests</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('numberOfGuests')}" th:errors="*{numberOfGuests}">Form error</div>
+					<input type="number" th:field="*{numberOfGuests}">
+				</div>
+				<div class="form-field">
+					<label>Localization</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('localisation')}" th:errors="*{localisation}">Form error</div>
+					<input type="text" th:field="*{localisation}">
+				</div>
+				<div class="form-field">
+					<label>Price per night</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('pricePerNight')}" th:errors="*{pricePerNight}">Form error</div>
+					<input type="number" th:field="*{pricePerNight}">
+				</div>
+				<div class="form-field">
+					<label>Number of beds</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('numberOfBeds')}" th:errors="*{numberOfBeds}">Form error</div>
+					<input type="number" th:field="*{numberOfBeds}">
+				</div>
+				<div class="form-field">
+					<label>Minimum stay</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('minStay')}" th:errors="*{minStay}">Form error</div>
+					<input type="number" th:field="*{minStay}">
+				</div>
+				
+				<button type="submit">Save Vehicle</button>
+			</form>
+		</div>
+	</body>
+</html>
