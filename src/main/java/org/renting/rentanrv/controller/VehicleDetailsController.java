@@ -36,26 +36,34 @@ public class VehicleDetailsController {
 		return "vehicle-details";
 	}
 	
+	//create and update
 	@PostMapping
 	public String submitVehicleForm(@ModelAttribute("vehicleForm")@Valid Vehicle vehicle, BindingResult result, 
 			HttpServletResponse response) {
-		
-		String view = "vehicle-form";
-		
+
 		if (result.hasErrors()) {
-			logger.warn(result.toString());
 			response.setStatus(HttpStatus.BAD_REQUEST.value());
 			result.reject("vehicleForm.error.imcompleteInput");
+			logger.warn(vehicle.toString());
+			return "vehicle-form";
 		} else {
 			vehicleService.createNewVehicle(vehicle);
-			view = "redirect:/vehicles"; //rather to users own page
+			return "redirect:/vehicles";
 		}
-		return view;
+		
 	}
 	
 	@DeleteMapping(path = "{id}")
 	public String deleteVehicle(@PathVariable("id") Long vehicleId) {
 		vehicleService.deleteVehicleById(vehicleId);
 		return "redirect:/vehicles";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String editVehicle(@PathVariable("id") Long vehicleId, Model model) {
+		model.addAttribute("vehicleForm", vehicleService.getVehicleById(vehicleId));
+		//add user ?
+		return "vehicle-form";
+		//return vehicles/vehicleForm
 	}
 }

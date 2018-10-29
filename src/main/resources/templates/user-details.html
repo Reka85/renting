@@ -39,6 +39,9 @@
 					<div th:each="vehicle : ${userVehicles}" th:id="${'vehicle-' + vehicle.id}" class="vehicle col-xs-12 col-sm-6 col-md-4 col-lg-3">
 						<a th:href="@{/vehicles/__${vehicle.id}__}">
 							<div class="vehicle-details">
+								<div class="card-photo">
+					   
+					            </div>
 								<p th:text="${vehicle.name}">Vehicle name</p>
 								<p th:text="${vehicle.localisation}">Vehicle localization</p>
 								<p><span th:text="${vehicle.pricePerNight}">Price per night</span> $ / night </p>

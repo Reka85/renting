@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 public class VehicleFormController {
 	@GetMapping("/vehicles/new")
-	public String displayForm(@ModelAttribute("vehicleForm")Vehicle v) {
+	public String displayForm(@ModelAttribute("vehicleForm")Vehicle vehicle) {
 		return "vehicle-form";
 	}
 }

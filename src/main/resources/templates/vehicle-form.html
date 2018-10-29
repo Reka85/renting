@@ -20,41 +20,11 @@
 	</head>
 	<body>
 		<div class="container text-center">
-			<h1>Create a new vehicle</h1>
-			<form method="post" th:action="@{/vehicles}"  action="/vehicles" th:object="${vehicleForm}">
-				<div class="form-field">				
-					<label>Vehicle name</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Form error</div>
-					<input type="text" th:field="*{name}" />
-				</div>
-				<div class="form-field">
-					<label>Number of guests</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('numberOfGuests')}" th:errors="*{numberOfGuests}">Form error</div>
-					<input type="number" th:field="*{numberOfGuests}">
-				</div>
-				<div class="form-field">
-					<label>Localization</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('localisation')}" th:errors="*{localisation}">Form error</div>
-					<input type="text" th:field="*{localisation}">
-				</div>
-				<div class="form-field">
-					<label>Price per night</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('pricePerNight')}" th:errors="*{pricePerNight}">Form error</div>
-					<input type="number" th:field="*{pricePerNight}">
-				</div>
-				<div class="form-field">
-					<label>Number of beds</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('numberOfBeds')}" th:errors="*{numberOfBeds}">Form error</div>
-					<input type="number" th:field="*{numberOfBeds}">
-				</div>
-				<div class="form-field">
-					<label>Minimum stay</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('minStay')}" th:errors="*{minStay}">Form error</div>
-					<input type="number" th:field="*{minStay}">
-				</div>
+			<h1 th:text="${#httpServletRequest.requestURI == '/vehicles/new'} ? 'Create RV' : 'Edit RV'">
 				
-				<button type="submit">Save Vehicle</button>
-			</form>
+			</h1>
+			
+			<div th:replace="fragments/vehicle-form-fr">
 		</div>
 	</body>
 </html>

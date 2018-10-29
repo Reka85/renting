@@ -17,4 +17,5 @@ public interface VehicleService {
 	Page <Vehicle> searchByNameOrLocalisation(String searchCriteria, Pageable page);
 	List<Vehicle> getVehiclesByUserId(Long userId);
 	void deleteVehicleById(Long vehicleId);
+	Vehicle getVehicleById(long vehicleId);
 }

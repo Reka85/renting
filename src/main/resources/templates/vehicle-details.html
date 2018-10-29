@@ -32,9 +32,14 @@
 				</a>
 			 </p>
 			 <br/>
+			 
+			 <form action="#" th:action="@{/vehicles/edit/__${vehicle.id}__}" th:method="get">
+      			<button type="submit">Edit vehicle</button>
+    		 </form>
+			 
 			 <form action="#" th:action="@{/vehicles/__${vehicle.id}__}" th:method="delete">
       			<button type="submit" onClick="return confirm('Are you sure?')">Delete vehicle</button>
-    		</form>
+    		 </form>
 			 <a th:href="@{'/'}">Back to home page</a>
 		 </div>
 	</body>

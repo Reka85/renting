@@ -21,3 +21,10 @@ a:active {
 	padding: 1em 1em;
 	text-align: center;
 }
+
+.card-photo{
+	background-image: url('../images/rv.jpg');
+	background-size: cover;
+	height: 10em;
+	margin-bottom: 5px;
+}
