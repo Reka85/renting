@@ -60,6 +60,7 @@ public class Vehicle {
 	private int minStay;
 	
 	@ManyToOne
+	@Valid
 	@NotNull //rv must belong to a user
 	private User user;
 	
@@ -147,6 +148,14 @@ public class Vehicle {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	@Override

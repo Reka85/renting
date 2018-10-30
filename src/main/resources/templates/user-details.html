@@ -50,8 +50,29 @@
 					</div>
 				</div>
 			</div>
+			
+			<h3>My Bookings</h3>
+			<div id="user-bookings" th:if="${not #lists.isEmpty(userBookings)}">
+				<div id="my-bookings" class="row" >
+					<div th:each="booking : ${userBookings}" th:id="${'booking-' + booking.id}" class="booking col-xs-12 col-sm-6 col-md-4 col-lg-3" th:classappend="${booking.completed} ? old-booking : future-booking">
+						 <!-- <a th:href="@{/bookings/__${booking.id}__}">  --> 
+							<div class="booking-details">
+								<p>At <span th:text="${booking.vehicle.localisation}">Vehicle localization</span></p>
+								<p>From <span th:text="${booking.checkIn}">Check-in date</span> 
+								   to <span th:text="${booking.checkOut}">Check-out date</span>
+								</p>
+								<p><span th:text="${booking.totalPrice}">Total amount</span> $</p>
+							</div>
+						 <!-- </a>  --> 
+					</div>
+				</div>
+			</div>
 			<div class="no-result" th:if="${#lists.isEmpty(userVehicles)}">
-				You have not any vehicles yet
+				You don't have any bookings yet
+			</div>
+			
+			<div class="no-result" th:if="${#lists.isEmpty(userBookings)}">
+				You don't have any vehicles yet
 			</div>
 		</div>    
 	</body>

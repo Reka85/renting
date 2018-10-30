@@ -21,6 +21,7 @@ import org.renting.rentanrv.model.validation.ValidGuestCount;
 @Entity
 @ValidGuestCount
 public class Booking {
+	
 	// -- fields --
 	
 	@Id
@@ -52,7 +53,7 @@ public class Booking {
 	@ManyToOne
 	@NotNull
 	@Valid
-	private User guest;
+	private User user;
 	
 	@ManyToOne
 	@NotNull
@@ -63,13 +64,13 @@ public class Booking {
 	
 	public Booking() {}
 
-	public Booking(int guestCount, int totalPrice, Date checkIn, 
-			Date checkOut, User guest, Vehicle vehicle) {
+	public Booking(int guestCount, int totalPrice, Date checkIn, Date checkOut, 
+			User user, Vehicle vehicle) {
 		this.guestCount = guestCount;
 		this.totalPrice = totalPrice;
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
-		this.guest = guest;
+		this.user = user;
 		this.vehicle = vehicle;
 	}
 	
@@ -126,12 +127,12 @@ public class Booking {
 		this.checkOut = checkOut;
 	}
 
-	public User getGuest() {
-		return guest;
+	public User getUser() {
+		return user;
 	}
 
-	public void setGuest(User guest) {
-		this.guest = guest;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Vehicle getVehicle() {
@@ -145,6 +146,6 @@ public class Booking {
 	@Override
 	public String toString() {
 		return "Booking [guestCount=" + guestCount + ", totalPrice=" + totalPrice + ", completed=" + completed
-				+ ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", guest=" + guest + ", vehicle=" + vehicle + "]";
+				+ ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", user=" + user + ", vehicle=" + vehicle + "]";
 	}	
 }

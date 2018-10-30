@@ -28,3 +28,23 @@ a:active {
 	height: 10em;
 	margin-bottom: 5px;
 }
+
+.future-booking{
+	background-color: rgb(243,250,242);
+	border: 3px solid rgb(235, 240,230);
+}
+
+.booking{
+	padding: 0.5em;
+	border-radius: 3px;
+}
+
+.old-booking{
+	
+	background-color: rgb(182,250,170);
+	border: 3px solid rgb(127, 250,108);
+}
+
+#user-bookings{
+	margin-bottom: 2em;
+}

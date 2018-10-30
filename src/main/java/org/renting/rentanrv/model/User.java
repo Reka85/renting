@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,6 +43,7 @@ public class User {
 	
 	@NotBlank
 	@Email
+	@Column(unique=true)
 	private String emailAddress;
 	
     @NotNull
@@ -57,7 +59,7 @@ public class User {
 	private List<Vehicle> vehicles = new ArrayList<>();
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "GUEST_ID")
+	@JoinColumn(name = "USER_ID")
 	@Valid
 	private List <Booking> bookings = new ArrayList<>(); 
 	
@@ -129,6 +131,14 @@ public class User {
 
 	public void setVehicles(List<Vehicle> vehicles) {
 		this.vehicles = vehicles;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 	@Override

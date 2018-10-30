@@ -1,10 +1,13 @@
 package org.renting.rentanrv.repository;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.renting.rentanrv.model.Booking;
 import org.renting.rentanrv.model.User;
 import org.renting.rentanrv.model.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,7 @@ public class CreateTestData {
 	
 	@Transactional
 	private void createTestUsers() {
+		
 		User user = new User("Joe", "Smith", "joe@email.com", 25, "123-1234567");
 		List<Vehicle> vehicles = user.getVehicles();
 		
@@ -48,7 +52,24 @@ public class CreateTestData {
 		vehicles2.add(new Vehicle("Mary's other vehicle", 10, "Liverpool", 7, price2, 1, user2));
 		
 		vehicles2.add(new Vehicle("Mary's vehicle in Yorkshire", 4, "Yorkshire", 4, price3, 2, user2));
+				
+		userRepository.save(user2);
 		
+		// -- make bookings --
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DATE, 7);
+		Date checkin = calendar.getTime();
+		
+		calendar.add(Calendar.DATE, 12);
+		Date checkout = calendar.getTime();
+		
+		List<Booking> bookings = user.getBookings();
+		bookings.add(new Booking(4,25,checkin, checkout, user, vehicles2.get(1)));
+		
+		List<Booking> bookings2 = user2.getBookings();
+		bookings2.add(new Booking(5,45,checkin, checkout, user2, vehicles.get(1)));
+		
+		userRepository.save(user);
 		userRepository.save(user2);
 	}
 	
