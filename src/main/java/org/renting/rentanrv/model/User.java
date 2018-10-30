@@ -56,6 +56,11 @@ public class User {
 	@Valid
 	private List<Vehicle> vehicles = new ArrayList<>();
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "GUEST_ID")
+	@Valid
+	private List <Booking> bookings = new ArrayList<>(); 
+	
 	// -- constructors --
 	public User() {}
 
