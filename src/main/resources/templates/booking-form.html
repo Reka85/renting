@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="utf-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	  	<title th:text="${vehicle.name + ' | Reservation' }">Make a reservation</title>
+	    <title>Make a reservation</title>
+	     
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet" />
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" /> 
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		
+	    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<h1>Booking form</h1>
+			<form action="/bookings" th:action="@{/bookings}" method="post" th:object="${bookingForm}">
+				<input type="hidden" th:name="vehicle" th:value="${vehicle.id}" />
+              	<div class="form-field">
+					<label>Check-in date</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('checkIn')}" th:errors="*{checkIn}">Form error</div>
+					<input type="date" id="checkIn"
+              			th:value="${#calendars.format(checkIn,'yyyy-MM-dd')}" th:name="${checkIn}" th:field="*{checkIn}" />
+				</div>
+				<div class="form-field">
+					<label>Check-out date</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('checkOut')}" th:errors="*{checkOut}">Form error</div>
+					<input type="date" id="checkOut"
+              			th:value="${#calendars.format(checkOut,'yyyy-MM-dd')}" th:name="${checkIn}" th:field="*{checkOut}" />
+				</div>
+				<div class="form-field">
+					<label>Number of guests</label><br/>
+					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('guestCount')}" th:errors="*{guestCount}">Form error</div>
+					<input type="number" id="guestCount" th:name="${guestCount}" th:field="*{guestCount}" />
+				</div>
+				<button type="submit">Make reservation</button>
+			</form>
+		</div>
+	</body>
+</html>

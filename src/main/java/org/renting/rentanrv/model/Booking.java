@@ -15,11 +15,11 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import org.renting.rentanrv.model.validation.ValidGuestCount;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-@ValidGuestCount
+//@ValidGuestCount
 public class Booking {
 	
 	// -- fields --
@@ -29,10 +29,11 @@ public class Booking {
 	private Long id;
 	
 	@NotNull
+	@Min(1)
 	private int guestCount;//can not be more than the capacity of the vehicle
 	
-	@NotNull
-	@Min(1)
+	//@NotNull
+	//@Min(1)
 	private int totalPrice;
 	
 	
@@ -42,16 +43,18 @@ public class Booking {
 		
 	@NotNull
 	@Future
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date checkIn;
 	
 	@NotNull
 	@Future
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date checkOut;//must be after checkIn + minStay defined in vehicle
 	
 	@ManyToOne
-	@NotNull
+	//@NotNull
 	@Valid
 	private User user;
 	

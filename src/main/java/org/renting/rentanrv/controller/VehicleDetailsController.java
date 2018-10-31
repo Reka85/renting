@@ -36,7 +36,7 @@ public class VehicleDetailsController {
 		return "vehicle-details";
 	}
 	
-	// handles create and update
+	// handles create and update of vehicle
 	@PostMapping
 	public String submitVehicleForm(@ModelAttribute("vehicleForm")@Valid Vehicle vehicle, BindingResult result, 
 			HttpServletResponse response) {

@@ -22,6 +22,17 @@ a:active {
 	text-align: center;
 }
 
+.booking{
+	padding: 20px;
+}
+.booking-details{
+	border: 1px solid black;
+	border-radius: 4px;
+	margin-bottom: 5vh;
+	padding: 1em 1em;
+	text-align: center;
+}
+
 .card-photo{
 	background-image: url('../images/rv.jpg');
 	background-size: cover;
@@ -30,8 +41,8 @@ a:active {
 }
 
 .future-booking{
-	background-color: rgb(243,250,242);
-	border: 3px solid rgb(235, 240,230);
+	background-color: rgb(182,250,170);
+	border: 3px solid rgb(127, 250,108);
 }
 
 .booking{
@@ -40,9 +51,8 @@ a:active {
 }
 
 .old-booking{
-	
-	background-color: rgb(182,250,170);
-	border: 3px solid rgb(127, 250,108);
+	background-color: rgb(243,250,242);
+	border: 3px solid rgb(235, 240,230);
 }
 
 #user-bookings{

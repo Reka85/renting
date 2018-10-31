@@ -2,6 +2,9 @@ package org.renting.rentanrv.service.impl;
 
 import java.util.List;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.renting.rentanrv.model.Booking;
 import org.renting.rentanrv.repository.BookingRepository;
 import org.renting.rentanrv.service.BookingService;
@@ -18,4 +21,12 @@ public class BookingServiceImpl implements BookingService {
 		List<Booking> bookings = bookingRepository.findAllByUserIdOrderByCheckInDesc(userId);
 		return bookings;
 	}
+
+	@Override
+	public Booking createNewBooking(@NotNull @Valid Booking newBooking) {
+		Booking booking = bookingRepository.save(newBooking);
+		return booking;
+	}
+	
+	
 }
