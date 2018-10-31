@@ -5,7 +5,7 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
 	
-	    <title th:text="${vehicle.name}">User</title>
+	    <title th:text="${vehicle.name}">Vehicle name</title>
 	     
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 	    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet" />
@@ -22,14 +22,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<h1>Vehicle details</h1>
-					<p>Name: <span th:text="${vehicle.name}">name</span></p>
-					<p>Number of guests: <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
-					<p>Localization: <span th:text="${vehicle.localisation}">Localization</span></p>
-					<p>Number of beds: <span th:text="${vehicle.numberOfBeds}">Number of beds</span></p>
-					<p>Price per night: <span th:text="${vehicle.pricePerNight}">Price per night</span> $</p>
-					<p>Minimum days to stay: <span th:text="${vehicle.minStay}">Minimum days to stay</span></p>
-					<p>Owner: 
+					<h2><span th:text="${vehicle.name}">Vehicle name</span></h2>
+					<p><span th:text="#{vehicleDetails.numGuests}">Number of guests: </span> <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
+					<p><span th:text="#{vehicleDetails.localization}">Localization: </span> <span th:text="${vehicle.localisation}">Localization</span></p>
+					<p><span th:text="#{vehicleDetails.numBeds}">Number of beds: </span> <span th:text="${vehicle.numberOfBeds}">Number of beds</span></p>
+					<p><span th:text="#{vehicleDetails.pricePerNight}">Price per night: </span> <span th:text="${vehicle.pricePerNight}">Price per night</span> $</p>
+					<p><span th:text="#{vehicleDetails.minStay}">Minimum days to stay:  </span> <span th:text="${vehicle.minStay}">Minimum days to stay</span></p>
+					<p><span th:text="#{vehicleDetails.owner}">Owner:</span> 
 						<a th:text="${vehicle.user.firstName}" 
 						   th:href="@{/users/__${vehicle.user.id}__}">Owner
 						</a>
@@ -37,16 +36,16 @@
 					<br/>
 					
 					<form action="#" th:action="@{/vehicles/edit/__${vehicle.id}__}" th:method="get">
-			  			<button type="submit">Edit vehicle</button>
+			  			<button type="submit" th:text="#{vehicleDetails.edit}">Edit vehicle</button>
 					 </form>
 					
 					<form action="#" th:action="@{/vehicles/__${vehicle.id}__}" th:method="delete">
-			  			<button type="submit" onClick="return confirm('Are you sure?')">Delete vehicle</button>
+			  			<button type="submit"  th:text="#{vehicleDetails.delete}" onClick="return confirm('Are you sure?')">Delete vehicle</button>
 					 </form>
 							 	 
-					 <button th:id="reserve">Make a reservation</button>
+					 <button th:id="reserve" th:text="#{vehicleDetails.makeReservation}">Make a reservation</button>
 					 <br/>
-					<a th:href="@{'/'}">Back to home page</a>
+					<a th:href="@{'/'}" th:text="#{vehicleDetails.backToHome}">Back to home page</a>
 				</div>
 					
 				<div th:id="form-container" th:style="'display:none;'" class="col-xs-12 col-sm-6">
