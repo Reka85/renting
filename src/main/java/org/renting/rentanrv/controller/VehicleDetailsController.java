@@ -3,6 +3,7 @@ package org.renting.rentanrv.controller;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.renting.rentanrv.model.Booking;
 import org.renting.rentanrv.model.Vehicle;
 import org.renting.rentanrv.service.VehicleService;
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class VehicleDetailsController {
 	
 	//localhost:80/vehicles/:id
 	@GetMapping(path = "{id}")
-	public String displayVehicle(@PathVariable("id") Long vehicleId, Model model) {
+	public String displayVehicle(@ModelAttribute("bookingForm")Booking booking, @PathVariable("id") Long vehicleId, Model model) {
 		Vehicle vehicle = vehicleService.getVehicleDetails(vehicleId);
 		model.addAttribute("vehicle", vehicle);
 		return "vehicle-details";

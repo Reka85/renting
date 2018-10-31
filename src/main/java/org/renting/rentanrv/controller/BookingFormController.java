@@ -12,9 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,13 +25,13 @@ public class BookingFormController {
 	private BookingService bookingService;
 
 	
-	@GetMapping("/vehicles/{id}/reservation")
-	public String displayReservationForm(@ModelAttribute("bookingForm")Booking booking, Model model, 
-			@PathVariable("id") Long vehicleId) {
-		Vehicle vehicle = vehicleService.getVehicleDetails(vehicleId);
-		model.addAttribute("vehicle", vehicle);
-		return "booking-form";
-	}
+//	@GetMapping("/vehicles/{id}/reservation")
+//	public String displayReservationForm(@ModelAttribute("bookingForm")Booking booking, Model model, 
+//			@PathVariable("id") Long vehicleId) {
+//		Vehicle vehicle = vehicleService.getVehicleDetails(vehicleId);
+//		model.addAttribute("vehicle", vehicle);
+//		return "booking-form";
+//	}
 	
 	@PostMapping("/bookings")
 	public String submitBookingForm(@ModelAttribute("bookingForm")@Valid Booking booking, BindingResult result, 
@@ -45,7 +43,7 @@ public class BookingFormController {
 			result.reject("bookingForm.error.imcompleteInput");
 			Vehicle bookingVehicle = vehicleService.getVehicleDetails(vehicle);
 			model.addAttribute("vehicle", bookingVehicle);
-			return "booking-form";
+			return "vehicle-details";
 		} else {
 			bookingService.createNewBooking(booking);
 			return "redirect:/vehicles";

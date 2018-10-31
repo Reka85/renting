@@ -20,28 +20,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Booking form</h1>
-			<form action="/bookings" th:action="@{/bookings}" method="post" th:object="${bookingForm}">
-				<input type="hidden" th:name="vehicle" th:value="${vehicle.id}" />
-              	<div class="form-field">
-					<label>Check-in date</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('checkIn')}" th:errors="*{checkIn}">Form error</div>
-					<input type="date" id="checkIn"
-              			th:value="${#calendars.format(checkIn,'yyyy-MM-dd')}" th:name="${checkIn}" th:field="*{checkIn}" />
-				</div>
-				<div class="form-field">
-					<label>Check-out date</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('checkOut')}" th:errors="*{checkOut}">Form error</div>
-					<input type="date" id="checkOut"
-              			th:value="${#calendars.format(checkOut,'yyyy-MM-dd')}" th:name="${checkIn}" th:field="*{checkOut}" />
-				</div>
-				<div class="form-field">
-					<label>Number of guests</label><br/>
-					<div class="fieldErrorMessage" th:if="${#fields.hasErrors('guestCount')}" th:errors="*{guestCount}">Form error</div>
-					<input type="number" id="guestCount" th:name="${guestCount}" th:field="*{guestCount}" />
-				</div>
-				<button type="submit">Make reservation</button>
-			</form>
+			
 		</div>
 	</body>
 </html>
