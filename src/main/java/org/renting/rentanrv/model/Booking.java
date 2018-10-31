@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,11 +16,14 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import org.renting.rentanrv.model.helper.BookingListener;
+import org.renting.rentanrv.model.validation.ValidGuestCount;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-//@ValidGuestCount
+@ValidGuestCount
+@EntityListeners(BookingListener.class)
 public class Booking {
 	
 	// -- fields --
