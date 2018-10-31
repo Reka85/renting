@@ -18,11 +18,13 @@ import javax.validation.constraints.NotNull;
 
 import org.renting.rentanrv.model.helper.BookingListener;
 import org.renting.rentanrv.model.validation.ValidGuestCount;
+import org.renting.rentanrv.model.validation.ValidReservationDates;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
 @ValidGuestCount
+@ValidReservationDates
 @EntityListeners(BookingListener.class)
 public class Booking {
 	
