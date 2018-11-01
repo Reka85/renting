@@ -20,7 +20,7 @@ public class BookingListener {
 		long diffInDays = TimeUnit.DAYS.convert(diffInMilliseconds, TimeUnit.MILLISECONDS);
 		BigDecimal pricePerNight = booking.getVehicle().getPricePerNight();
 		BigDecimal total = pricePerNight.multiply(BigDecimal.valueOf(diffInDays));
-		booking.setTotalPrice(total.intValue());
+		booking.setTotalPrice(total);
 		logger.info("total: {}", total);
 	}
 }

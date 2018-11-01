@@ -64,10 +64,12 @@ public class CreateTestData {
 		Date checkout = calendar.getTime();
 		
 		List<Booking> bookings = user.getBookings();
-		bookings.add(new Booking(4,25,checkin, checkout, user, vehicles2.get(1)));
+		BigDecimal priceFirstBooking = new BigDecimal("25");
+		bookings.add(new Booking(4, priceFirstBooking, checkin, checkout, user, vehicles2.get(1)));
 		
 		List<Booking> bookings2 = user2.getBookings();
-		bookings2.add(new Booking(5,45,checkin, checkout, user2, vehicles.get(1)));
+		BigDecimal priceSecondBooking = new BigDecimal("45");
+		bookings2.add(new Booking(5, priceSecondBooking, checkin, checkout, user2, vehicles.get(1)));
 		
 		userRepository.save(user);
 		userRepository.save(user2);

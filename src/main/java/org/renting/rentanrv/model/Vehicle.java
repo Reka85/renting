@@ -61,7 +61,6 @@ public class Vehicle {
 	
 	@ManyToOne
 	@Valid
-	@NotNull //rv must belong to a user
 	private User user;
 	
 	@OneToMany(cascade = CascadeType.ALL)
@@ -72,6 +71,16 @@ public class Vehicle {
 	// -- constructors --
 	
 	public Vehicle() {}
+	
+	public Vehicle(String name, int numberOfGuests, String localisation, int numberOfBeds,
+			BigDecimal pricePerNight, int minStay) {
+		this.name = name;
+		this.numberOfGuests = numberOfGuests;
+		this.localisation = localisation;
+		this.numberOfBeds = numberOfBeds;
+		this.pricePerNight = pricePerNight;
+		this.minStay = minStay;
+	}
 
 	public Vehicle(String name, int numberOfGuests, String localisation, int numberOfBeds,
 			BigDecimal pricePerNight, int minStay, User user) {

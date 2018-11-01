@@ -1,5 +1,6 @@
 package org.renting.rentanrv.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -40,7 +41,7 @@ public class Booking {
 	
 	//@NotNull
 	//@Min(1)
-	private int totalPrice;
+	private BigDecimal totalPrice;
 	
 	
 	//by default it is false
@@ -72,8 +73,16 @@ public class Booking {
 	// -- constructors --
 	
 	public Booking() {}
+	
+	public Booking(int guestCount, BigDecimal totalPrice, Date checkIn, Date checkOut, Vehicle vehicle) {
+		this.guestCount = guestCount;
+		this.totalPrice = totalPrice;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		this.vehicle = vehicle;
+	}
 
-	public Booking(int guestCount, int totalPrice, Date checkIn, Date checkOut, 
+	public Booking(int guestCount, BigDecimal totalPrice, Date checkIn, Date checkOut, 
 			User user, Vehicle vehicle) {
 		this.guestCount = guestCount;
 		this.totalPrice = totalPrice;
@@ -101,11 +110,11 @@ public class Booking {
 		this.guestCount = guestCount;
 	}
 
-	public int getTotalPrice() {
+	public BigDecimal getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(BigDecimal totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 

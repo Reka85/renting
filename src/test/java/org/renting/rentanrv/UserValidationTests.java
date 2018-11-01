@@ -89,4 +89,6 @@ public class UserValidationTests {
 	public void test_userCreationWithNotFullUsNumber_fails() {
 		service.createNewUser(new User("mary", "smith", "mary@email.com", 25, "456-465"));
 	}
+
+	
 }
