@@ -64,7 +64,6 @@ public class UserEntityTest {
 	public void saveUser() {
 		User savedUser = this.entityManager.persistAndFlush(testUser);
 		assertThat(savedUser.getFirstName()).isEqualTo("Joe");
-
 	}
 	
 	@Test
