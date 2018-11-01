@@ -24,6 +24,7 @@ public class VehicleEntityTest {
 	private TestEntityManager entityManager;
 	
 	private User testUser;
+	private User rentingTestUser;
 	private Vehicle testVehicle;
 	private Booking firstTestBooking;
 	private Booking secondTestBooking;
@@ -31,6 +32,7 @@ public class VehicleEntityTest {
 	@Before
 	public void setUp() {
 		testUser = new User("Joe", "Smith", "joe@email.com", 25, "123-1234567");
+		rentingTestUser = new User("Jane", "Anderson", "jane@email.com", 34, "123-1237890");
 		
 		BigDecimal price1 = new BigDecimal("34");
 		testVehicle = new Vehicle("Joe's vehicle", 5, "Venice Beach", 5, price1, 1, testUser);
@@ -44,8 +46,8 @@ public class VehicleEntityTest {
 		Date checkout = calendar.getTime();
 		
 		BigDecimal bookingPrice = new BigDecimal("148");
-		firstTestBooking = new Booking(4, bookingPrice, checkin, checkout, testVehicle);
-		secondTestBooking = new Booking(2, bookingPrice, checkin, checkout, testVehicle);
+		firstTestBooking = new Booking(4, bookingPrice, checkin, checkout, rentingTestUser, testVehicle);
+		secondTestBooking = new Booking(2, bookingPrice, checkin, checkout, rentingTestUser, testVehicle);
 	}
 	
 	@Test
@@ -59,9 +61,11 @@ public class VehicleEntityTest {
 	public void saveVehicleBookings() {
 		testVehicle.getBookings().add(firstTestBooking);
 		testVehicle.getBookings().add(secondTestBooking);
-
+		
 		User savedUser = this.entityManager.persistFlushFind(testUser);
+		User savedRentingUser = this.entityManager.persistFlushFind(rentingTestUser);
 		Vehicle savedVehicle = this.entityManager.persistFlushFind(testVehicle);
+		
 		assertThat(savedVehicle.getId()).isNotNull();
 		assertThat(savedVehicle.getName()).isEqualTo("Joe's vehicle");
 		assertThat(testVehicle.getBookings().size()).isEqualTo(2);
@@ -73,6 +77,7 @@ public class VehicleEntityTest {
 		testVehicle.getBookings().add(secondTestBooking);
 
 		User savedUser = this.entityManager.persistFlushFind(testUser);
+		User savedRentingUser = this.entityManager.persistFlushFind(rentingTestUser);
 		Vehicle savedVehicle = this.entityManager.persistFlushFind(testVehicle);
 		
 		savedVehicle.getBookings().remove(0);

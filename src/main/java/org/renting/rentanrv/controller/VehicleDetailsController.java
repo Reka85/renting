@@ -29,7 +29,7 @@ public class VehicleDetailsController {
 	@Autowired
 	private VehicleService vehicleService;
 	
-	//localhost:80/vehicles/:id
+	//localhost/vehicles/:id
 	@GetMapping(path = "{id}")
 	public String displayVehicle(@ModelAttribute("bookingForm")Booking booking, @PathVariable("id") Long vehicleId, Model model) {
 		Vehicle vehicle = vehicleService.getVehicleDetails(vehicleId);

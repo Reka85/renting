@@ -13,9 +13,9 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public interface VehicleService {
 	Vehicle createNewVehicle(@NotNull @Valid Vehicle newVehicle);
-	Vehicle getVehicleDetails(long vehicleId);
+	Vehicle getVehicleDetails(Long vehicleId);
 	Page <Vehicle> searchByNameOrLocalisation(String searchCriteria, Pageable page);
 	List<Vehicle> getVehiclesByUserId(Long userId);
 	void deleteVehicleById(Long vehicleId);
-	Vehicle getVehicleById(long vehicleId);
+	Vehicle getVehicleById(Long vehicleId);
 }

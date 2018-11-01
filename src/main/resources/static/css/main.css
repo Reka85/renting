@@ -19,3 +19,7 @@ a:hover {
 a:active {
 	color: inherit;
 }
+
+.no-result{
+	margin-bottom: 3vh;
+}

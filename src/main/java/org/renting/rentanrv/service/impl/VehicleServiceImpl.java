@@ -26,7 +26,7 @@ public class VehicleServiceImpl implements VehicleService {
 	}
 
 	@Override
-	public Vehicle getVehicleDetails(long vehicleId) {
+	public Vehicle getVehicleDetails(Long vehicleId) {
 		Vehicle vehicle = vehicleRepository.findById(vehicleId).get();
 		return vehicle;
 	}
@@ -57,7 +57,7 @@ public class VehicleServiceImpl implements VehicleService {
 	}
 
 	@Override
-	public Vehicle getVehicleById(long vehicleId) {
+	public Vehicle getVehicleById(Long vehicleId) {
 		Vehicle vehicle = vehicleRepository.findById(vehicleId).get();
 		return vehicle;
 	}

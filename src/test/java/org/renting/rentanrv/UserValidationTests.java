@@ -44,7 +44,12 @@ public class UserValidationTests {
 	
 	@Test(expected = ConstraintViolationException.class)
 	public void test_userCreationWithoutAge_fails() {
-		service.createNewUser(new User(" ", "smith", "mary@email.com", null, "456-4578965"));
+		service.createNewUser(new User("mary", "smith", "mary@email.com", null, "456-4578965"));
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void test_userCreationWithoutTelNumber_fails() {
+		service.createNewUser(new User("mary", "smith", "mary@email.com", 26, null));
 	}
 	
 	// -- testing format --

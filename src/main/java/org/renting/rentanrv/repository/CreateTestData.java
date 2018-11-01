@@ -47,11 +47,11 @@ public class CreateTestData {
 		User user2 = new User("Rose", "Wright", "rose@email.com", 34, "456-4563214");
 		List<Vehicle> vehicles2 = user2.getVehicles();
 		
-		vehicles2.add(new Vehicle("Mary's vehicle", 5, "Brighton", 3, price1, 2, user2));
+		vehicles2.add(new Vehicle("Rose's vehicle", 5, "Brighton", 3, price1, 2, user2));
 		
-		vehicles2.add(new Vehicle("Mary's other vehicle", 10, "Liverpool", 7, price2, 1, user2));
+		vehicles2.add(new Vehicle("Rose's other vehicle", 10, "Liverpool", 7, price2, 1, user2));
 		
-		vehicles2.add(new Vehicle("Mary's vehicle in Yorkshire", 4, "Yorkshire", 4, price3, 2, user2));
+		vehicles2.add(new Vehicle("Rose's vehicle in Yorkshire", 4, "Yorkshire", 4, price3, 2, user2));
 				
 		userRepository.save(user2);
 		

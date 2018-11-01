@@ -73,14 +73,6 @@ public class Booking {
 	// -- constructors --
 	
 	public Booking() {}
-	
-	public Booking(int guestCount, BigDecimal totalPrice, Date checkIn, Date checkOut, Vehicle vehicle) {
-		this.guestCount = guestCount;
-		this.totalPrice = totalPrice;
-		this.checkIn = checkIn;
-		this.checkOut = checkOut;
-		this.vehicle = vehicle;
-	}
 
 	public Booking(int guestCount, BigDecimal totalPrice, Date checkIn, Date checkOut, 
 			User user, Vehicle vehicle) {

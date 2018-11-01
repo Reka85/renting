@@ -23,15 +23,6 @@ public class BookingFormController {
 	
 	@Autowired
 	private BookingService bookingService;
-
-	
-//	@GetMapping("/vehicles/{id}/reservation")
-//	public String displayReservationForm(@ModelAttribute("bookingForm")Booking booking, Model model, 
-//			@PathVariable("id") Long vehicleId) {
-//		Vehicle vehicle = vehicleService.getVehicleDetails(vehicleId);
-//		model.addAttribute("vehicle", vehicle);
-//		return "booking-form";
-//	}
 	
 	@PostMapping("/bookings")
 	public String submitBookingForm(@ModelAttribute("bookingForm")@Valid Booking booking, BindingResult result, 

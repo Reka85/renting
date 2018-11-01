@@ -44,8 +44,8 @@ public class UserEntityTest {
 		// -- making vehicles
 		BigDecimal price1 = new BigDecimal("34");
 		BigDecimal price2 = new BigDecimal("40.5");
-		firstTestVehicle = new Vehicle("Joe's vehicle", 5, "Venice Beach", 5, price1, 1);
-		secondTestVehicle = new Vehicle("Joe's second vehicle", 3, "Long Island", 2, price2, 2);
+		firstTestVehicle = new Vehicle("Joe's vehicle", 5, "Venice Beach", 5, price1, 1, testUser);
+		secondTestVehicle = new Vehicle("Joe's second vehicle", 3, "Long Island", 2, price2, 2, testUser);
 		
 		// -- making bookings --
 		Calendar calendar = Calendar.getInstance();
@@ -56,8 +56,8 @@ public class UserEntityTest {
 		Date checkout = calendar.getTime();
 		
 		BigDecimal bookingPrice = new BigDecimal("148");
-		firstTestBooking = new Booking(4, bookingPrice, checkin, checkout, firstTestVehicle);
-		secondTestBooking = new Booking(2, bookingPrice, checkin, checkout, secondTestVehicle);
+		firstTestBooking = new Booking(4, bookingPrice, checkin, checkout, rentingTestUser, firstTestVehicle);
+		secondTestBooking = new Booking(2, bookingPrice, checkin, checkout, rentingTestUser, secondTestVehicle);
 	}
 	
 	@Test

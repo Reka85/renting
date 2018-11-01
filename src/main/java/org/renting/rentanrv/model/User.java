@@ -50,6 +50,7 @@ public class User {
     @Min(18) // only users above 18 can lease or rent rvs
     private Integer age; 
 	
+    @NotNull
 	@Pattern(regexp="(^\\d{3}-\\d{7}$)") // US phone number format
 	private String phoneNumber;
 	

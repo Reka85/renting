@@ -10,6 +10,7 @@ import org.renting.rentanrv.repository.BookingRepository;
 import org.renting.rentanrv.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BookingServiceImpl implements BookingService {
@@ -27,6 +28,17 @@ public class BookingServiceImpl implements BookingService {
 		Booking booking = bookingRepository.save(newBooking);
 		return booking;
 	}
-	
-	
+
+	@Override
+	@Transactional(readOnly = true)
+	public Booking getBookingDetails(Long bookingId) {
+		Booking booking = bookingRepository.findById(bookingId).get();
+		return booking;
+	}
+
+	@Override
+	public void deleteBookingById(Long bookingId) {
+		bookingRepository.deleteById(bookingId);	
+	}
+
 }

@@ -10,4 +10,6 @@ import org.renting.rentanrv.model.Booking;
 public interface BookingService {
 	List<Booking> getBookingsByUserId(Long userId);
 	Booking createNewBooking(@NotNull @Valid Booking newBooking);
+	Booking getBookingDetails(Long bookingId);
+	void deleteBookingById(Long bookingId);
 }
