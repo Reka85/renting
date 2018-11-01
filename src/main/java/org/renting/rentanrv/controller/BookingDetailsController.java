@@ -25,7 +25,8 @@ public class BookingDetailsController {
 	
 	@DeleteMapping(path = "bookings/{id}")
 	public String deleteBooking(@PathVariable("id") Long bookingId) {
-		Booking booking = bookingService.getBookingDetails(bookingId);
+//		Booking booking = bookingService.getBookingDetails(bookingId);
+//		Long userId = booking.getUser().getId();
 		bookingService.deleteBookingById(bookingId);
 		return "redirect:/";
 	}
