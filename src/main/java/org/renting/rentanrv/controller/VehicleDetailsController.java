@@ -54,7 +54,7 @@ public class VehicleDetailsController {
 		}
 		
 	}
-	
+	@Secured("ROLE_ADMIN")
 	@DeleteMapping(path = "{id}")
 	public String deleteVehicle(@PathVariable("id") Long vehicleId) {
 		vehicleService.deleteVehicleById(vehicleId);
