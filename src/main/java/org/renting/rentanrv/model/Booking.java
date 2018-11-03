@@ -66,7 +66,6 @@ public class Booking {
 	private User user;
 	
 	@ManyToOne
-	@NotNull
 	@Valid
 	private Vehicle vehicle;
 	

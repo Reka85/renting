@@ -63,7 +63,7 @@ public class Vehicle {
 	@Valid
 	private User user;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
 	@JoinColumn(name = "VEHICLE_ID")
 	@Valid
 	private List <Booking> bookings = new ArrayList<>(); 
