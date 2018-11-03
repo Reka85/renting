@@ -26,7 +26,7 @@
 					<p><span th:text="#{vehicleDetails.numGuests}">Number of guests: </span> <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
 					<p><span th:text="#{vehicleDetails.localization}">Localization: </span> <span th:text="${vehicle.localisation}">Localization</span></p>
 					<p><span th:text="#{vehicleDetails.numBeds}">Number of beds: </span> <span th:text="${vehicle.numberOfBeds}">Number of beds</span></p>
-					<p><span th:text="#{vehicleDetails.pricePerNight}">Price per night: </span> <span th:text="${vehicle.pricePerNight}">Price per night</span> $</p>
+					<p><span th:text="#{vehicleDetails.pricePerNight}">Price per night: </span> <span th:id="price" id="price" th:text="${vehicle.pricePerNight}">Price per night</span> $</p>
 					<p><span th:text="#{vehicleDetails.minStay}">Minimum days to stay:  </span> <span th:text="${vehicle.minStay}">Minimum days to stay</span></p>
 					<p><span th:text="#{vehicleDetails.owner}">Owner:</span> 
 						<a th:text="${vehicle.user.firstName}" 
