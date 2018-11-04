@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:th="http://www.thymeleaf.org"
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
 	    <meta charset="utf-8" />
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,8 +22,9 @@
 	</head>
 </head>
 <body>
+	<th:block th:replace="fragments/navbar"/>
 	<div class="container">
-		<h1 th:text="#{bookingDetails.title"}>Booking details</h1>
+		<h1 th:text="#{bookingDetails.title}">Booking details</h1>
 		
 		<p><span th:text="#{bookingDetails.checkIn}">Check-in: </span> <span th:text="${booking.checkIn}">Date of check-in</span></p>
 		<p><span th:text="#{bookingDetails.checkOut}">Check-out: </span> <span th:text="${booking.checkOut}">Date of check-out</span></p>

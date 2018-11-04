@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
 	    <meta charset="utf-8" />
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,6 +21,7 @@
 	    <![endif]-->
 	</head>
 	<body>
+		<th:block th:replace="fragments/navbar"/>
 		<div class="container text-center">
 			<h1 th:text="${#httpServletRequest.requestURI == '/vehicles/new'} ? 'Create RV' : 'Edit RV'">
 				

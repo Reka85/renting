@@ -33,10 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        //.antMatchers("/registration", "/reg").permitAll() //?? change
 	        .antMatchers("/admin/**").hasRole("ADMIN")
 	        .anyRequest().authenticated()
-//	        .and()
-//	        .headers().frameOptions().disable()
-//            .and()
-//            .csrf().ignoringAntMatchers("/h2-console/**")//!! change
+	        .and()//to access h2-console page
+	        .headers().frameOptions().disable()
+            .and()
+            .csrf().ignoringAntMatchers("/h2-console/**")
  			.and().formLogin().permitAll();	        
 //	        .and().logout().logoutSuccessUrl("/").permitAll();
     }
