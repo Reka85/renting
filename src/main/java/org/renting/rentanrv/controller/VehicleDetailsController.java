@@ -60,7 +60,7 @@ public class VehicleDetailsController {
 		vehicleService.deleteVehicleById(vehicleId);
 		return "redirect:/vehicles";
 	}
-	@Secured("ROLE_USER")
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping("/edit/{id}")
 	public String editVehicle(@PathVariable("id") Long vehicleId, Model model) {
 		model.addAttribute("vehicleForm", vehicleService.getVehicleById(vehicleId));

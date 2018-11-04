@@ -13,7 +13,7 @@ public interface VehicleRepository extends CrudRepository<Vehicle, Long> {
 	
 	// get vehicles that match location / name search
 	Page<Vehicle> findByNameIgnoreCaseLikeOrLocalisationIgnoreCaseLikeOrderByName(
-			String searchKeyword, Pageable page);
+			String localisation, String name, Pageable page);
 
 	List<Vehicle> findAllByUserIdOrderByNameAsc(Long userId);
 }
