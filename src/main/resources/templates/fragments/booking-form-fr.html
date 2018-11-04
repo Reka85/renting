@@ -31,49 +31,7 @@
 		<br/>
 		<div th:id=total id=total></div>
 	</div>
-	<script>
-	document.addEventListener("DOMContentLoaded", function(event) {
-		function displayTotal() {
-		    const checkInField = document.getElementById("checkIn");
-		    const checkOutField = document.getElementById("checkOut");
-		    const priceElem = document.getElementById('price');
-		    const totalElem = document.getElementById('total');
-		    
-		    const pricePerNight = parseFloat(priceElem.textContent, 10);
-		    
-		    checkInField.addEventListener("change", onCheckInDateChange);
-		    checkOutField.addEventListener("change", onCheckOutDateChange);
-		    
-		    function getDiff(dateIn, dateOut){
-	    		const dIn = moment(dateIn);
-	    		const dOut = moment(dateOut);
-	    		const days = dOut.diff(dIn, 'days');
-	    		if (days >= 1){
-	    			const total = days * pricePerNight;
-		    		totalElem.innerHTML = "<span>Total to pay: <strong>" + total + "$</strong></span>";	
-	    		} else {
-	    			totalElem.innerHTML = "";
-	    		}	    				    	
-		    }
-		    
-		    function onCheckInDateChange(event){
-		    	const checkInDate = moment(event.target.value);	    	
-		    	if (checkOutField.value !== ""){
-		    		getDiff(checkInDate, checkOutField.value);
-		    	}	    	
-		    }
-		    
-		    function onCheckOutDateChange(event){
-		    	const checkOutDate = moment(event.target.value);
-		    	if (checkInField.value !== ""){
-		    		getDiff(checkInField.value, checkOutDate);
-		    	}
-		    }
-		}
-		displayTotal(); // don't forget to call this function on the first run
-	});
-	
-	</script>
+	<script type="text/javascript" th:src="@{/js/totalPrice.js}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
 </body>
 </html>
