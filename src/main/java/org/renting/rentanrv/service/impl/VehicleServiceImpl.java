@@ -39,14 +39,14 @@ public class VehicleServiceImpl implements VehicleService {
 			vehicles = vehicleRepository.findAllByOrderByLocalisation(page);
 		} else {
 			searchCriteria = MessageFormat.format("%{0}%", searchCriteria.trim());
-			vehicles = vehicleRepository.findByNameIgnoreCaseLikeOrLocalisationIgnoreCaseLikeOrderByName(searchCriteria, searchCriteria, page);
+			vehicles = vehicleRepository.findByNameIgnoreCaseLikeOrLocalisationIgnoreCaseLikeOrderByName(searchCriteria, page);
 		}
 		return vehicles;
 	}
 
 	@Override
 	public List<Vehicle> getVehiclesByUserId(Long userId) {
-		List<Vehicle> vehicles = vehicleRepository.findAllByUserIdOrderByNameDesc(userId);
+		List<Vehicle> vehicles = vehicleRepository.findAllByUserIdOrderByNameAsc(userId);
 		return vehicles;
 	}
 
