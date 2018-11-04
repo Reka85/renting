@@ -21,18 +21,18 @@
 	<body>
 		<div class="container">
 			<div id="user-profile">
-				<h1>User details</h1>
-				<p>First name: <span th:text="${user.firstName}">firstName</span></p>
-				<p>Last name: <span th:text="${user.lastName}">lastName</span></p>
-				<p>Email: <span th:text="${user.emailAddress}">emailAddress</span></p>
-				<p>Phone: <span th:text="${user.phoneNumber}">phoneNumber</span></p>
+				<h1 th:text="#{userDetails.title}">User details</h1>
+				<p><span th:text="#{userDetails.firstName}">First name: </span> <span th:text="${user.firstName}">firstName</span></p>
+				<p><span th:text="#{userDetails.lastName}">Last name: </span><span th:text="${user.lastName}">lastName</span></p>
+				<p><span th:text="#{userDetails.email}">Email: </span><span th:text="${user.emailAddress}">emailAddress</span></p>
+				<p><span th:text="#{userDetails.phone}">Phone: </span><span th:text="${user.phoneNumber}">phoneNumber</span></p>
 				<br/>
-				<a th:href="@{'/'}">Back to home page</a>
+				<a th:href="@{'/'}" th:text="#{userDetails.backToHome}">Back to home page</a>
 			</div>
 			
-			<h3>My Vehicles</h3>
+			<h3 th:text="#{userDetails.myVehicles.title}">My Vehicles</h3>
 			<form action="#" th:action="@{/vehicles/new}" method="get">
-      			<button type="submit">Create new</button>
+      			<button type="submit" th:text="#{userDetails.myVehicles.createNew.button}">Create new</button>
     		</form>
 			<div id="user-rvs" th:if="${not #lists.isEmpty(userVehicles)}">
 				<div id="my-vehicles" class="row">
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			
-			<h3>My Bookings</h3>
+			<h3 th:text="#{userDetails.myBookings.title}">My Bookings</h3>
 			<div id="user-bookings" th:if="${not #lists.isEmpty(userBookings)}">
 				<div id="my-bookings" class="row" >
 					<div th:each="booking : ${userBookings}" th:id="${'booking-' + booking.id}" class="booking col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -67,11 +67,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="no-result" th:if="${#lists.isEmpty(userVehicles)}">
+			<div class="no-result" th:if="${#lists.isEmpty(userVehicles)}" th:text="#{userDetails.emptyVehicles}">
 				You don't have any vehicles yet
 			</div>
 			
-			<div class="no-result" th:if="${#lists.isEmpty(userBookings)}">
+			<div class="no-result" th:if="${#lists.isEmpty(userBookings)}" th:text="#{userDetails.emptyBookings}">
 				You don't have any bookings yet
 			</div>
 		</div>    

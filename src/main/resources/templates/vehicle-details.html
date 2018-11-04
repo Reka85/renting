@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
 					<h2><span th:text="${vehicle.name}">Vehicle name</span></h2>
-					<p><span th:text="#{vehicleDetails.numGuests}">Number of guests: </span> <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
+					<p><span th:text="#{vehicleDetails.numGuests}">Maximum number of guests: </span> <span th:text="${vehicle.numberOfGuests}">Maximum number of guests</span></p>
 					<p><span th:text="#{vehicleDetails.localization}">Localization: </span> <span th:text="${vehicle.localisation}">Localization</span></p>
 					<p><span th:text="#{vehicleDetails.numBeds}">Number of beds: </span> <span th:text="${vehicle.numberOfBeds}">Number of beds</span></p>
 					<p><span th:text="#{vehicleDetails.pricePerNight}">Price per night: </span> <span th:id="price" id="price" th:text="${vehicle.pricePerNight}">Price per night</span> $</p>

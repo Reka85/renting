@@ -5,7 +5,7 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
 	
-	    <title th:text="${'Booking at ' + booking.vehicle.localisation}">Booking</title>
+	    <title th:text="${'Booking at ' + booking.vehicle.localisation}">Booking details</title>
 	    
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 	    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet" />
@@ -21,7 +21,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Booking details</h1>
+		<h1 th:text="#{bookingDetails.title"}>Booking details</h1>
 		
 		<p><span th:text="#{bookingDetails.checkIn}">Check-in: </span> <span th:text="${booking.checkIn}">Date of check-in</span></p>
 		<p><span th:text="#{bookingDetails.checkOut}">Check-out: </span> <span th:text="${booking.checkOut}">Date of check-out</span></p>
