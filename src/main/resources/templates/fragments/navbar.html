@@ -8,11 +8,11 @@
 		        <li class=""><a href="/users/id">My page</a></li>
 		        
 		    </ul>
-		    <div class="navbar-text navbar-right">
-		    Welcome <span sec:authentication="firstName">Anonymous</span>
-	           <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post" class="form-inline">
-		    		| <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Log out</a>
-		      </form>
+		    <div class="navbar-text navbar-right" style="display: flex; justify-content: space-between;">
+		   		 <p style="margin-right:10px;">Welcome <span sec:authentication="firstName">Anonymous</span><p>
+		         <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post" class="form-inline">
+			    	<a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Log out</a>
+			     </form>
 		    </div>
 		</div>
     </div>
