@@ -1,0 +1,133 @@
+RV Booking app
+
+RV = recreational vehicle
+
+User stories
+
+// /vehicles
+As a GUEST
+I can SEE ALL RVS
+So that I SELECT ONE
+
+WHEN I navigate to the … page
+THEN I can see the rvs in a paginated form
+
+// /vehicles/:id
+As a GUEST
+I can SEE THE DETAILS OF A RV
+So that I CAN BOOK ONE (I need to be LOGGED IN)
+
+WHEN in navigate to the RVs page
+THEN I can see information about it
+
+GIVEN I am  not signed in
+WHEN I click on the reservation button
+THEN I am asked to sign in
+
+GIVEN I am signed in 
+WHEN I click on the reservation button
+THEN I am  can see a form
+
+// /login
+As a GUEST 
+I can LOG IN
+So that I CAN SEE MY DASHBOARD / MAKE RESERVATIONS / CREATE MY RVS
+
+GIVEN I navigate / get directed to the login page
+ 
+WHEN I click on the login button
+THEN the empty fields for email and password appear
+
+GIVEN I am already registered AND I fill in the form properly
+WHEN I click the Login button
+THEN I am navigated to my dashboard
+
+GIVEN I am NOT already registered AND I fill in the form properly
+WHEN I click the Login button
+THEN I get asked to register
+
+GIVEN I don’t fill in the form properly
+WHEN I click the Login button
+THEN I get informed to fill it in with valid data
+
+GIVEN I am not yet registered
+WHEN I click on the register button
+THEN an empty form with … fields appear
+
+GIVEN I fill in the form with valid data
+WHEN I click on the submit button
+THEN I get a confirmation message about the successful registration and get navigated to the dashboard
+
+GIVEN I fill in the form with invalid data
+WHEN I click on the submit button
+THEN I get informed that I need to fill it in properly
+ 
+
+//  /vehicles/:id
+As a LOGGED-IN USER
+I can BOOK A RV
+So that I CAN SEE IT IN MY BOOKINGS
+
+GIVEN I am logged-in
+WHEN I click on the Reservation button at an RV’s page
+THEN I get navigated to a my dashboard
+
+GIVEN I am logged-in
+WHEN I navigate to my dashboard
+THEN I can see my past and future reservations
+
+As a LOGGED-IN USER
+I can see my RVS
+So that I CAN MODIFY / DELETE them
+
+GIVEN I am logged in
+WHEN I navigate to my site
+THEN I can see all the rvs that I offer for rent
+
+// /vehicles/new
+As a LOGGED-IN USER
+I can CREATE A RV
+So that it GETS DISPLAYED FOR OTHERS
+
+GIVEN I am logged-in
+WHEN I navigate to my dashboard AND click on add rv
+THEN I get navigated to a page with an empty form
+
+GIVEN I fill in the form properly 
+WHEN I click in the create rv button
+THEN I get redirected to vehicles page
+
+GIVEN I dont fill in the form properly 
+WHEN I click in the create rv button
+THEN I get notified that I have to fill it in properly
+
+// /vehicles/:id
+As a LOGGED-IN USER
+I can MODIFY/DELETE MY RVS
+So that it gets UPDATED /DELETED FROM THE PAGE
+
+GIVEN I am logged-in
+WHEN I navigate to one of my rvs site
+THEN I can see a delete and an edit button
+
+// edit
+WHEN I click on the edit button
+THEN a form filled with the current data of the rv gets displayed
+
+GIVEN I fill in this form properly
+WHEN I click on the Save modifications button
+THEN I get directed to the rvs page and see the new data
+
+GIVEN I DONT fill in this form properly
+WHEN I click on the Save modifications button
+THEN I get notified that I need to fill it in properly
+
+WHEN I click  on the delete button on the site of my rv
+THEN I get asked if I really want to delete it
+
+WHEN I click on the ok
+THEN the rv gets deleted from the db and I am redirected to my dashboard
+
+WHEN I click cancel
+THEN I get back to the rv’s site
+
