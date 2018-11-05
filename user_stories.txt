@@ -1,5 +1,7 @@
 RV Booking app
 
+// see informations.txt file for known bugs and errors
+
 RV = recreational vehicle
 
 User stories
