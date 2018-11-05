@@ -39,7 +39,7 @@ public class VehicleServiceImpl implements VehicleService {
 			vehicles = vehicleRepository.findAllByOrderByLocalisation(page);
 		} else {
 			searchCriteria = MessageFormat.format("%{0}%", searchCriteria.trim());
-			vehicles = vehicleRepository.findByNameIgnoreCaseLikeOrLocalisationIgnoreCaseLikeOrderByName(searchCriteria, page);
+			vehicles = vehicleRepository.findByNameIgnoreCaseLikeOrLocalisationIgnoreCaseLikeOrderByName(searchCriteria, searchCriteria, page);
 		}
 		return vehicles;
 	}

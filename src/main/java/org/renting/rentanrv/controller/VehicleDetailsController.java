@@ -42,7 +42,7 @@ public class VehicleDetailsController {
 	@PostMapping
 	public String submitVehicleForm(@ModelAttribute("vehicleForm")@Valid Vehicle vehicle, BindingResult result, 
 			HttpServletResponse response) {
-
+		
 		if (result.hasErrors()) {
 			response.setStatus(HttpStatus.BAD_REQUEST.value());
 			result.reject("vehicleForm.error.imcompleteInput");

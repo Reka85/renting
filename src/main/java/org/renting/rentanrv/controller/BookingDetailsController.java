@@ -3,6 +3,7 @@ package org.renting.rentanrv.controller;
 import org.renting.rentanrv.model.Booking;
 import org.renting.rentanrv.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +24,7 @@ public class BookingDetailsController {
 		return "booking-details";
 	}
 	
+	@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@DeleteMapping(path = "bookings/{id}")
 	public String deleteBooking(@PathVariable("id") Long bookingId) {
 //		Booking booking = bookingService.getBookingDetails(bookingId);
